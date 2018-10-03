@@ -4,6 +4,8 @@ module SidekiqAlive
   class Server < Sinatra::Base
     set :bind, '0.0.0.0'
 
+    disable :traps
+
     class << self
       def start
         Sidekiq::Logging.logger.info "Writing SidekiqAlive alive key in redis: #{SidekiqAlive.config.liveness_key}"

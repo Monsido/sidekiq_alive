@@ -10,6 +10,9 @@ module SidekiqAlive
         SidekiqAlive::Worker.perform_async
         SidekiqAlive::Server.start
       end
+      config.on(:shutdown) do
+        SidekiqAlive::Server.quit!
+      end
     end
   end
 
