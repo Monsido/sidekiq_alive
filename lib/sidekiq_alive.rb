@@ -11,7 +11,7 @@ module SidekiqAlive
         SidekiqAlive::Server.start
       end
       config.on(:shutdown) do
-        SidekiqAlive::Server.quit!
+        SidekiqAlive::Server.stop!
       end
     end
   end
